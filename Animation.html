@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation</title>
+    </head>
+    <body>
+        <style>
+            #box
+            {
+                width: 1250px;
+                height: 100px;
+                border: 5px solid blueviolet;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            #box span
+            {
+                position: relative;
+                animation: moving 15s infinite;
+                text-decoration: cadetblue;
+            }
+            @keyframes moving
+            {
+                0% {margin-left: 0px;}
+                50% {margin-left: 1100px;}
+                100% {margin-left:0px}
+            }
+        </style>
+        <div id="box">
+            <span>Aspire</span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+<title>Register Form Design</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="js.js">
+    </script>
+
+<body>
+
+    <div class="box">
+
+        <h1>Register </h1>
+
+        <form onsubmit ="return vfun1()">
+
+            <p>Username</p>
+            <input type="text" id="uname1" onchange="return un()"placeholder="Enter Username" style="color: black">
+            <div id="got"></div>
+            <p>Email</p>
+            <input type="Email" id="email1" onchange="return un1()" placeholder="Enter email id">
+            <div id="got1"></div>
+            <p>Password</p>
+            <input type="password" id="upswd1" placeholder="Enter Password">
+
+            <p>Confirm Password</p>
+            <input type="password" id="upswd2" placeholder="Re-Enter Password">
+<br>
+<br>
+<div id="errorBox" style="color:brown"></div>
+            <input type="submit" name="" value="Register">
+            <br><br>
+            <a href="index.html">existing user, login !?</a>
+        </form>
+        
+    </div>
+
+</body>
+</head>
+</html>
