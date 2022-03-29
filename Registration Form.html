@@ -34,14 +34,13 @@
 <label for="mbl">Mobile Number:</label>
 <input type="tel" id="mbl" name="mbl_num"><br><br>
 <label for="cntry">Country:</label>
-<input list="cntry">
-<datalist name="cntry_name" id="cntry">
+<select name="cntry_name" id="cntry">
     <option value="india" >India</option>
     <option value="america">America</option>
     <option value="australia">Australia</option>
     <option value="england">England</option>
     <option value="europe">Europe</option>
-</datalist><br>
+</select><br>
 <p>Gender</p>
 <input type="radio" id="ml" name="gender" value="Male">
 <label for="ml">Male</label>
@@ -55,7 +54,8 @@
 <input type="password" id="pwd" name="pass_word" onchange="validatePassword()"><br><br>
 <label for="cnfp">Confirm Password:</label>
 <input type="password" id="cnfp" name="cnfrm_password" onchange="comparePassword()"><br><br>
-<input type="submit" value="Submit" class="btn"> 
+<input type="submit" value="Submit" class="btn"><br><br> 
+<a href="Login page.html">Already a User</a>
 </form>
 </div>
 <script src="form.js"></script>

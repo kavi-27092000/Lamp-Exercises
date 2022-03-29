@@ -1,8 +1,9 @@
 function validateEmail()
 {
-    var email = document.getElementById('email').value;
-    if(/^[A-Za-z0-9]{4,}@[A-Za-z]{3,}.[A-Za-z]{2,}$/.test(email) == false)
+    var Email = document.getElementById('email').value;
+    if(/^[A-Za-z0-9]{4,}@[A-Za-z]{3,}.[A-Za-z]{2,}$/.test(Email) == false)
         alert('Invalid email address');
+        localStorage.setItem('email',Email);
 }
 
 function validatePassword()
@@ -18,4 +19,5 @@ function comparePassword()
     var confirmPassword = document.getElementById('cnfp').value;
     if(newPassword != confirmPassword)
         alert('Confirm Password must be same as the password');
+    localStorage.setItem('password',confirmPassword);
 }
