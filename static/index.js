@@ -1,73 +1,57 @@
-localStorage.clear();
+function computeTotal(){
+
+    var parent = document.getElementById('cart');
+    var element = parent.firstElementChild;
+    let sum = 0;
+    while(element && element.firstElementChild)
+    {
+        var price = element.firstElementChild.nextElementSibling.nextElementSibling;
+        price = price.textContent.replace('Rs. ','');
+        price = parseInt(price);
+        sum+=price
+        element = element.nextElementSibling;
+    }
+    total.textContent = `Total : Rs. ${sum}`;
+}
+
+function addToCart(current)
+{
+    var parrent = current.parentElement;
+    var image = parrent.firstElementChild;
+    var imageClone = image.cloneNode();
+    var product = image.nextElementSibling;
+    var productClone = product.cloneNode(true);
+    var price = product.nextElementSibling;
+    var priceClone = price.cloneNode(true);
+    var closeButton = document.createElement('input');
+    closeButton.setAttribute('id','closebutton');
+    closeButton.setAttribute('type','button');
+    closeButton.setAttribute('value','Remove');
+    var cart = document.createElement('div');
+    document.getElementById('cart').appendChild(cart);
+    cart.appendChild(imageClone);
+    cart.appendChild(productClone);
+    cart.appendChild(priceClone);
+    cart.appendChild(closeButton);
+    computeTotal(cart);
+    closeButton.onclick = (event) => {
+        event.target.parentElement.remove();
+        computeTotal(cart);
+    }
+}
+
 hp.onclick = (event) => {
-	var price = event.target.previousElementSibling.textContent;
-	localStorage.setItem('product','HP');	
-	if(localStorage.getItem('productarray') && localStorage.getItem('product'))
-		localStorage.setItem('productarray',localStorage.getItem('productarray')+','+localStorage.getItem('product'));
-	else
-		localStorage.setItem('productarray',localStorage.getItem('product'));
-	if(localStorage.getItem('pricearray'))
-		localStorage.setItem('pricearray',localStorage.getItem('pricearray')+','+price.replace('Rs. ',''));
-	else
-		localStorage.setItem('pricearray',price.replace('Rs. ',''));
-		print();
+    addToCart(event.target);
 }
 
 lenovo.onclick = (event) => {
-	var price = event.target.previousElementSibling.textContent;
-	localStorage.setItem('product','Lenovo');	
-	if(localStorage.getItem('productarray') && localStorage.getItem('product'))
-		localStorage.setItem('productarray',localStorage.getItem('productarray')+','+localStorage.getItem('product'));
-	else
-		localStorage.setItem('productarray',localStorage.getItem('product'));
-	if(localStorage.getItem('pricearray'))
-		localStorage.setItem('pricearray',localStorage.getItem('pricearray')+','+price.replace('Rs. ',''));
-	else
-		localStorage.setItem('pricearray',price.replace('Rs. ',''));
-	print();
-}
+    addToCart(event.target);
+} 
 
 dell.onclick = (event) => {
-	var price = event.target.previousElementSibling.textContent;
-	localStorage.setItem('product','Dell');	
-	if(localStorage.getItem('productarray') && localStorage.getItem('product'))
-		localStorage.setItem('productarray',localStorage.getItem('productarray')+','+localStorage.getItem('product'));
-	else
-		localStorage.setItem('productarray',localStorage.getItem('product'));
-	if(localStorage.getItem('pricearray'))
-		localStorage.setItem('pricearray',localStorage.getItem('pricearray')+','+price.replace('Rs. ',''));
-	else
-		localStorage.setItem('pricearray',price.replace('Rs. ',''));
-	print();
+    addToCart(event.target);
 }
 
 apple.onclick = (event) => {
-	var price = event.target.previousElementSibling.textContent;
-	localStorage.setItem('product','Apple');	
-	if(localStorage.getItem('productarray') && localStorage.getItem('product'))
-		localStorage.setItem('productarray',localStorage.getItem('productarray')+','+localStorage.getItem('product'));
-	else
-		localStorage.setItem('productarray',localStorage.getItem('product'));
-	if(localStorage.getItem('pricearray'))
-		localStorage.setItem('pricearray',localStorage.getItem('pricearray')+','+price.replace('Rs. ',''));
-	else
-		localStorage.setItem('pricearray',price.replace('Rs. ',''));
-	print();
-}
-
-function print()
-{
-	var productArray = localStorage.getItem('productarray').split(',');
-	var priceArray = localStorage.getItem('pricearray').split(',');
-	var tableArray = document.getElementsByTagName('td');
-	var k=0;
-	for(index = 0;index<tableArray.length;index+=2)
-		tableArray[index].textContent = productArray[k++];
-	var l =0;
-	var sum = 0;
-	for(index = 1;index<tableArray.length;index+=2)
-		tableArray[index].textContent = priceArray[l++];
-	for(index=0;index<priceArray.length;index++)
-		sum+=parseInt(priceArray[index]);
-	document.getElementById('total').textContent = `Total : Rs. ${sum}`;
+    addToCart(event.target);
 }
